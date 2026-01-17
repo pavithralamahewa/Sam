@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { IntelligentPresence } from '@/components/IntelligentPresence';
-import { OnboardingFlow } from '@/components/OnboardingFlow';
+import { AIConversation } from '@/components/AIConversation';
 import { COOEngine, BusinessContext, COODecision } from '@/lib/coo-engine';
 
 type AppState = 'onboarding' | 'running';
@@ -176,7 +176,7 @@ export default function Home() {
     <main className="w-screen h-screen overflow-hidden">
       <AnimatePresence mode="wait">
         {appState === 'onboarding' && (
-          <OnboardingFlow key="onboarding" onComplete={handleOnboardingComplete} />
+          <AIConversation key="conversation" onComplete={handleOnboardingComplete} />
         )}
 
         {appState === 'running' && (
